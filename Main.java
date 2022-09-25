@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 public class Main {
     public static void main(String [] args) throws IOException {
-        Random r = new Random();
+        Random r = new Random();                          //开随机数种子 解决重复性
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
@@ -16,7 +16,7 @@ public class Main {
         BufferedWriter bfw2 = new BufferedWriter(
                               new OutputStreamWriter(
                               new FileOutputStream(".\\Answers.txt")));
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {                       //两位数运算随机存到ep1数组中
             ep1[i] = new Equation01();
             ep1[i].creat();
             for (int j = 0; j < i; j++) {
@@ -26,7 +26,7 @@ public class Main {
                 }
             }
         }
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < m; i++) {                //三位数运算同上
             ep2[i] = new Equation02();
             ep2[i].creat();
             for (int j = 0; j < i; j++) {
@@ -36,7 +36,7 @@ public class Main {
                 }
             }
         }
-        for(int i = 0;i < n;i++){
+        for(int i = 0;i < n;i++){                                   //依次写入文件
             bfw1.write((i+1)+". "+ep1[i].toString()+"\n");
             bfw2.write((i+1)+". "+ep1[i].ans+"\n");
         }
